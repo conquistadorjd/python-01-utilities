@@ -24,8 +24,9 @@ values = ( )
 try:
     cursor.execute(sql,values)
     rows = cursor.fetchall()
-    for item in rows:
-    	print item
+    print type(rows), len(rows)
+    for rownum in range(1, 5):
+    	print rows[rownum]
 except mysql.connector.Error as err:
     print("*****Something went wrong: {}".format(err))
     cnx.rollback()
